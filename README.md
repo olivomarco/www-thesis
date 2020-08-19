@@ -2,17 +2,17 @@
 
 This repo contains the discussion material and presentations of my MS, Computer Science 2003 thesis, title (in italian) "Studio di euristiche per il miglioramento di algoritmi di ranking per il World-Wide Web" (Heuristics for better WWW ranking algorithms)
 
-I cannot share the code I wrote, since it is a part of a wider project which belongs to the [department](https://www.di.unimi.it) of my University (Università degli Studi di Milano) and of Pisa CERN laboratory.
+I cannot share the Java code I wrote, since it is a part of a wider project which belongs to the [CS department](https://www.di.unimi.it) of my University ([Università degli Studi di Milano](http://www.unimi.it)) and of Pisa CERN laboratory.
 
-## What was done in the thesis
+## What was done in the MS thesis
 
 Everything started out from the UbiCrawler project, in the LAW laboratory. The search engine was named "Ubi", and it was "better than Google" (sort of :) but the results were really great for the time and for the scope&size of the project)
 
 ![Ubi Logo](/ubilogo.png)
 
-The whole search engine, the algorithms and the various utilities implemented were written using the Java language; the search engine uses many 3rd-party classes that overcome many limits we found exist in the Java standard classes. Some of these classes are GPL’ed and are available under [this site](http://vigna.di.unimi.it).
+The whole search engine, the algorithms and the various utilities implemented were written using the Java language; the search engine also uses many 3rd-party classes that overcome many limits our team found existing in Java standard classes. Some of those classes have been GPL’ed and are available under [this site](http://vigna.di.unimi.it) and [other](http://fastutil.di.unimi.it/) [related](http://mg4j.di.unimi.it/) websites.
 
-My MS thesis shows many useful techniques which are probably used by the commercial search engines in order to give ranks to the documents. Since search results were very similar to those given back by many commercial search engines, it might be worth reading it. Apart from that, there are also some nice notes about search engines and about the problem of rank aggregation, which I have faced during my thesis. In short, the rank aggregation problem is the problem you have to face when you want to speed up searches, by "cutting" match-evaluation after a certain number of positives, but being (almost) sure you don’t lose anything significant.
+My MS thesis shows many useful techniques which were *probably* used in 2002-2003 by commercial search engines in order to give ranks to documents. Since search results were very similar to those given back by many commercial search engines, it might be worth reading it. Apart from that, there are also some nice notes about search engines and about the problem of rank aggregation, which I have faced during my thesis. In short, the rank aggregation problem is the problem you have to face when you want to speed up searches, by "cutting" match-evaluation after a certain number of positives, but being (almost) sure you don’t lose any significant result.
 
 ![Screenshot of the search engine in action](/screenshot.png)
 
@@ -42,4 +42,4 @@ Here is the thesis essay, available only in Italian:
 
 ## Provided material
 
-You can find the thesis [here (PDF)](/generated-pdf/tesi.pdf). Here are the [slides (PDF)](/discussion/slides.ppt) used for the [discussion (text)](/discussion/discorso.md) and here are the [slides (PDF)](/webbit04/slides_webbit04.pdf) used in a dissertation in a large italian trade fair made in 2004.
+You can find the thesis [here (PDF)](/generated-pdf/tesi.pdf). Here are the [slides (MS PowerPoint)](/discussion/slides.ppt) used for the [discussion (text)](/discussion/discorso.md), while here are the [slides (PDF)](/webbit04/slides_webbit04.pdf) used in a dissertation in a large italian trade fair I participated as speaker with [Matteo Coloberti](https://www.linkedin.com/in/matteo-coloberti-9877a64/?originalSubdomain=it) in 2004.
