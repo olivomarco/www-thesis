@@ -1,0 +1,3091 @@
+%!PS-Adobe-2.0
+%%Creator: dot version 1.8.8 (Sat Jul  6 00:03:32 EDT 2002)
+%%For: (marco) Marco Olivo
+%%Title: packages
+%%Pages: (atend)
+%%BoundingBox: 35 35 3232 1457
+%%EndComments
+save
+%%BeginProlog
+/DotDict 200 dict def
+DotDict begin
+
+/setupLatin1 {
+mark
+/EncodingVector 256 array def
+ EncodingVector 0
+
+ISOLatin1Encoding 0 255 getinterval putinterval
+
+EncodingVector
+  dup 306 /AE
+  dup 301 /Aacute
+  dup 302 /Acircumflex
+  dup 304 /Adieresis
+  dup 300 /Agrave
+  dup 305 /Aring
+  dup 303 /Atilde
+  dup 307 /Ccedilla
+  dup 311 /Eacute
+  dup 312 /Ecircumflex
+  dup 313 /Edieresis
+  dup 310 /Egrave
+  dup 315 /Iacute
+  dup 316 /Icircumflex
+  dup 317 /Idieresis
+  dup 314 /Igrave
+  dup 334 /Udieresis
+  dup 335 /Yacute
+  dup 376 /thorn
+  dup 337 /germandbls
+  dup 341 /aacute
+  dup 342 /acircumflex
+  dup 344 /adieresis
+  dup 346 /ae
+  dup 340 /agrave
+  dup 345 /aring
+  dup 347 /ccedilla
+  dup 351 /eacute
+  dup 352 /ecircumflex
+  dup 353 /edieresis
+  dup 350 /egrave
+  dup 355 /iacute
+  dup 356 /icircumflex
+  dup 357 /idieresis
+  dup 354 /igrave
+  dup 360 /dcroat
+  dup 361 /ntilde
+  dup 363 /oacute
+  dup 364 /ocircumflex
+  dup 366 /odieresis
+  dup 362 /ograve
+  dup 365 /otilde
+  dup 370 /oslash
+  dup 372 /uacute
+  dup 373 /ucircumflex
+  dup 374 /udieresis
+  dup 371 /ugrave
+  dup 375 /yacute
+  dup 377 /ydieresis  
+
+% Set up ISO Latin 1 character encoding
+/starnetISO {
+        dup dup findfont dup length dict begin
+        { 1 index /FID ne { def }{ pop pop } ifelse
+        } forall
+        /Encoding EncodingVector def
+        currentdict end definefont
+} def
+/Times-Roman starnetISO def
+/Times-Italic starnetISO def
+/Times-Bold starnetISO def
+/Times-BoldItalic starnetISO def
+/Helvetica starnetISO def
+/Helvetica-Oblique starnetISO def
+/Helvetica-Bold starnetISO def
+/Helvetica-BoldOblique starnetISO def
+/Courier starnetISO def
+/Courier-Oblique starnetISO def
+/Courier-Bold starnetISO def
+/Courier-BoldOblique starnetISO def
+cleartomark
+} bind def
+
+%%BeginResource: procset
+/coord-font-family /Times-Roman def
+/default-font-family /Times-Roman def
+/coordfont coord-font-family findfont 8 scalefont def
+
+/InvScaleFactor 1.0 def
+/set_scale {
+	dup 1 exch div /InvScaleFactor exch def
+	dup scale
+} bind def
+
+% styles
+/solid { [] 0 setdash } bind def
+/dashed { [9 InvScaleFactor mul dup ] 0 setdash } bind def
+/dotted { [1 InvScaleFactor mul 6 InvScaleFactor mul] 0 setdash } bind def
+/invis {/fill {newpath} def /stroke {newpath} def /show {pop newpath} def} bind def
+/bold { 2 setlinewidth } bind def
+/filled { } bind def
+/unfilled { } bind def
+/rounded { } bind def
+/diagonals { } bind def
+
+% hooks for setting color 
+/nodecolor { sethsbcolor } bind def
+/edgecolor { sethsbcolor } bind def
+/graphcolor { sethsbcolor } bind def
+/nopcolor {pop pop pop} bind def
+
+/beginpage {	% i j npages
+	/npages exch def
+	/j exch def
+	/i exch def
+	/str 10 string def
+	npages 1 gt {
+		gsave
+			coordfont setfont
+			0 0 moveto
+			(\() show i str cvs show (,) show j str cvs show (\)) show
+		grestore
+	} if
+} bind def
+
+/set_font {
+	findfont exch
+	scalefont setfont
+} def
+
+% draw aligned label in bounding box aligned to current point
+/alignedtext {			% width adj text
+	/text exch def
+	/adj exch def
+	/width exch def
+	gsave
+		width 0 gt {
+			text stringwidth pop adj mul 0 rmoveto
+		} if
+		[] 0 setdash
+		text show
+	grestore
+} def
+
+/boxprim {				% xcorner ycorner xsize ysize
+		4 2 roll
+		moveto
+		2 copy
+		exch 0 rlineto
+		0 exch rlineto
+		pop neg 0 rlineto
+		closepath
+} bind def
+
+/ellipse_path {
+	/ry exch def
+	/rx exch def
+	/y exch def
+	/x exch def
+	matrix currentmatrix
+	newpath
+	x y translate
+	rx ry scale
+	0 0 1 0 360 arc
+	setmatrix
+} bind def
+
+/endpage { showpage } bind def
+
+/layercolorseq
+	[	% layer color sequence - darkest to lightest
+		[0 0 0]
+		[.2 .8 .8]
+		[.4 .8 .8]
+		[.6 .8 .8]
+		[.8 .8 .8]
+	]
+def
+
+/setlayer {/maxlayer exch def /curlayer exch def
+	layercolorseq curlayer get
+	aload pop sethsbcolor
+	/nodecolor {nopcolor} def
+	/edgecolor {nopcolor} def
+	/graphcolor {nopcolor} def
+} bind def
+
+/onlayer { curlayer ne {invis} if } def
+
+/onlayers {
+	/myupper exch def
+	/mylower exch def
+	curlayer mylower lt
+	curlayer myupper gt
+	or
+	{invis} if
+} def
+
+/curlayer 0 def
+
+%%EndResource
+%%EndProlog
+%%BeginSetup
+14 default-font-family set_font
+1 setmiterlimit
+% /arrowlength 10 def
+% /arrowwidth 5 def
+
+% make sure pdfmark is harmless for PS-interpreters other than Distiller
+/pdfmark where {pop} {userdict /pdfmark /cleartomark load put} ifelse
+% make '<<' and '>>' safe on PS Level 1 devices
+/languagelevel where {pop languagelevel}{1} ifelse
+2 lt {
+    userdict (<<) cvn ([) cvn load put
+    userdict (>>) cvn ([) cvn load put
+} if
+
+%%EndSetup
+%%Page: 1 1
+%%PageBoundingBox: 36 36 3232 1457
+%%PageOrientation: Portrait
+gsave
+35 35 3197 1422 boxprim clip newpath
+36 36 translate
+0 0 1 beginpage
+0 0 translate 0 rotate
+[ /CropBox [36 36 3232 1457] /PAGES pdfmark
+0.000 0.000 0.000 graphcolor
+14.00 /Times-Roman set_font
+
+%	store.Manager
+gsave 10 dict begin
+newpath 2514 1412 moveto
+2404 1412 lineto
+2404 1376 lineto
+2514 1376 lineto
+closepath
+stroke
+gsave 10 dict begin
+0.000 0.000 1.000 nodecolor
+2459 1389 moveto 96 -0.5 (store.Manager) alignedtext
+end grestore
+end grestore
+
+%	.store
+gsave 10 dict begin
+2421 1322 28 18 ellipse_path
+stroke
+gsave 10 dict begin
+0.000 0.000 1.000 nodecolor
+2421 1317 moveto 34 -0.5 (.store) alignedtext
+end grestore
+end grestore
+
+%	store.Manager -> .store
+newpath 2443 1376 moveto
+2438 1368 2432 1358 2428 1349 curveto
+stroke
+gsave 10 dict begin
+solid
+0.000 0.000 0.000 edgecolor
+newpath 2430 1348 moveto
+2424 1340 lineto
+2426 1350 lineto
+closepath
+fill
+0.000 0.000 0.000 edgecolor
+end grestore
+
+%	.index
+gsave 10 dict begin
+2498 1322 31 18 ellipse_path
+stroke
+gsave 10 dict begin
+0.000 0.000 1.000 nodecolor
+2498 1317 moveto 40 -0.5 (.index) alignedtext
+end grestore
+end grestore
+
+%	store.Manager -> .index
+newpath 2469 1376 moveto
+2474 1368 2479 1358 2483 1349 curveto
+stroke
+gsave 10 dict begin
+solid
+0.000 0.000 0.000 edgecolor
+newpath 2485 1350 moveto
+2488 1340 lineto
+2481 1348 lineto
+closepath
+fill
+0.000 0.000 0.000 edgecolor
+end grestore
+
+%	.count
+gsave 10 dict begin
+2578 1322 31 18 ellipse_path
+stroke
+gsave 10 dict begin
+0.000 0.000 1.000 nodecolor
+2578 1317 moveto 40 -0.5 (.count) alignedtext
+end grestore
+end grestore
+
+%	store.Manager -> .count
+newpath 2489 1376 moveto
+2507 1365 2531 1351 2549 1340 curveto
+stroke
+gsave 10 dict begin
+solid
+0.000 0.000 0.000 edgecolor
+newpath 2550 1342 moveto
+2557 1335 lineto
+2547 1338 lineto
+closepath
+fill
+0.000 0.000 0.000 edgecolor
+end grestore
+
+%	store.Extractor
+gsave 10 dict begin
+newpath 2385 1268 moveto
+2273 1268 lineto
+2273 1232 lineto
+2385 1232 lineto
+closepath
+stroke
+gsave 10 dict begin
+0.000 0.000 1.000 nodecolor
+2329 1245 moveto 99 -0.5 (store.Extractor) alignedtext
+end grestore
+end grestore
+
+%	.anchors
+gsave 10 dict begin
+1395 818 38 18 ellipse_path
+stroke
+gsave 10 dict begin
+0.000 0.000 1.000 nodecolor
+1395 813 moveto 55 -0.5 (.anchors) alignedtext
+end grestore
+end grestore
+
+%	store.Extractor -> .anchors
+newpath 2273 1248 moveto
+2080 1228 1409 1300 1409 1106 curveto
+1409 1106 1409 1106 1409 962 curveto
+1409 921 1403 874 1399 845 curveto
+stroke
+gsave 10 dict begin
+solid
+0.000 0.000 0.000 edgecolor
+newpath 1402 846 moveto
+1398 836 lineto
+1397 846 lineto
+closepath
+fill
+0.000 0.000 0.000 edgecolor
+end grestore
+
+%	.store2url
+gsave 10 dict begin
+2072 1178 42 18 ellipse_path
+stroke
+gsave 10 dict begin
+0.000 0.000 1.000 nodecolor
+2072 1173 moveto 62 -0.5 (.store2url) alignedtext
+end grestore
+end grestore
+
+%	store.Extractor -> .store2url
+newpath 2273 1234 moveto
+2225 1221 2159 1203 2116 1190 curveto
+stroke
+gsave 10 dict begin
+solid
+0.000 0.000 0.000 edgecolor
+newpath 2117 1188 moveto
+2107 1188 lineto
+2116 1193 lineto
+closepath
+fill
+0.000 0.000 0.000 edgecolor
+end grestore
+
+%	.store2urltokens
+gsave 10 dict begin
+2547 1178 64 18 ellipse_path
+stroke
+gsave 10 dict begin
+0.000 0.000 1.000 nodecolor
+2547 1173 moveto 107 -0.5 (.store2urltokens) alignedtext
+end grestore
+end grestore
+
+%	store.Extractor -> .store2urltokens
+newpath 2384 1232 moveto
+2418 1221 2462 1206 2496 1195 curveto
+stroke
+gsave 10 dict begin
+solid
+0.000 0.000 0.000 edgecolor
+newpath 2497 1197 moveto
+2506 1192 lineto
+2496 1192 lineto
+closepath
+fill
+0.000 0.000 0.000 edgecolor
+end grestore
+
+%	.store2occs
+gsave 10 dict begin
+811 530 46 18 ellipse_path
+stroke
+gsave 10 dict begin
+0.000 0.000 1.000 nodecolor
+811 525 moveto 70 -0.5 (.store2occs) alignedtext
+end grestore
+end grestore
+
+%	store.Extractor -> .store2occs
+newpath 2273 1248 moveto
+2268 1248 2263 1248 2259 1248 curveto
+2107 1241 2069 1237 1916 1228 curveto
+1707 1215 980 1315 980 1106 curveto
+980 1106 980 1106 980 674 curveto
+980 608 905 566 854 545 curveto
+stroke
+gsave 10 dict begin
+solid
+0.000 0.000 0.000 edgecolor
+newpath 856 543 moveto
+846 542 lineto
+854 548 lineto
+closepath
+fill
+0.000 0.000 0.000 edgecolor
+end grestore
+
+%	.store2title
+gsave 10 dict begin
+2246 458 44 18 ellipse_path
+stroke
+gsave 10 dict begin
+0.000 0.000 1.000 nodecolor
+2246 453 moveto 67 -0.5 (.store2title) alignedtext
+end grestore
+end grestore
+
+%	store.Extractor -> .store2title
+newpath 2337 1232 moveto
+2378 1138 2560 700 2490 584 curveto
+2448 514 2354 481 2295 467 curveto
+stroke
+gsave 10 dict begin
+solid
+0.000 0.000 0.000 edgecolor
+newpath 2297 465 moveto
+2287 465 lineto
+2296 470 lineto
+closepath
+fill
+0.000 0.000 0.000 edgecolor
+end grestore
+
+%	store.Store2Graph
+gsave 10 dict begin
+newpath 2202 980 moveto
+2066 980 lineto
+2066 944 lineto
+2202 944 lineto
+closepath
+stroke
+gsave 10 dict begin
+0.000 0.000 1.000 nodecolor
+2134 957 moveto 122 -0.5 (store.Store2Graph) alignedtext
+end grestore
+end grestore
+
+%	.store2graph
+gsave 10 dict begin
+1766 818 52 18 ellipse_path
+stroke
+gsave 10 dict begin
+0.000 0.000 1.000 nodecolor
+1766 813 moveto 83 -0.5 (.store2graph) alignedtext
+end grestore
+end grestore
+
+%	store.Store2Graph -> .store2graph
+newpath 2126 944 moveto
+2117 923 2098 889 2070 872 curveto
+2031 847 1902 830 1826 823 curveto
+stroke
+gsave 10 dict begin
+solid
+0.000 0.000 0.000 edgecolor
+newpath 1827 821 moveto
+1817 822 lineto
+1827 826 lineto
+closepath
+fill
+0.000 0.000 0.000 edgecolor
+end grestore
+
+%	store.Graph2URLInfo
+gsave 10 dict begin
+newpath 1934 980 moveto
+1768 980 lineto
+1768 944 lineto
+1934 944 lineto
+closepath
+stroke
+gsave 10 dict begin
+0.000 0.000 1.000 nodecolor
+1851 957 moveto 153 -0.5 (store.Graph2URLInfo) alignedtext
+end grestore
+end grestore
+
+%	.graph2urlinfo
+gsave 10 dict begin
+1851 890 60 18 ellipse_path
+stroke
+gsave 10 dict begin
+0.000 0.000 1.000 nodecolor
+1851 885 moveto 99 -0.5 (.graph2urlinfo) alignedtext
+end grestore
+end grestore
+
+%	store.Graph2URLInfo -> .graph2urlinfo
+newpath 1851 944 moveto
+1851 936 1851 927 1851 918 curveto
+stroke
+gsave 10 dict begin
+solid
+0.000 0.000 0.000 edgecolor
+newpath 1854 918 moveto
+1851 908 lineto
+1849 918 lineto
+closepath
+fill
+0.000 0.000 0.000 edgecolor
+end grestore
+
+%	store.PageRankPermutation
+gsave 10 dict begin
+newpath 1697 548 moveto
+1493 548 lineto
+1493 512 lineto
+1697 512 lineto
+closepath
+stroke
+gsave 10 dict begin
+0.000 0.000 1.000 nodecolor
+1595 525 moveto 191 -0.5 (store.PageRankPermutation) alignedtext
+end grestore
+end grestore
+
+%	.store2rank
+gsave 10 dict begin
+1595 458 48 18 ellipse_path
+stroke
+gsave 10 dict begin
+0.000 0.000 1.000 nodecolor
+1595 453 moveto 75 -0.5 (.store2rank) alignedtext
+end grestore
+end grestore
+
+%	store.PageRankPermutation -> .store2rank
+newpath 1595 512 moveto
+1595 504 1595 495 1595 486 curveto
+stroke
+gsave 10 dict begin
+solid
+0.000 0.000 0.000 edgecolor
+newpath 1598 486 moveto
+1595 476 lineto
+1593 486 lineto
+closepath
+fill
+0.000 0.000 0.000 edgecolor
+end grestore
+
+%	graph.OfflinePageRank
+gsave 10 dict begin
+newpath 1804 692 moveto
+1624 692 lineto
+1624 656 lineto
+1804 656 lineto
+closepath
+stroke
+gsave 10 dict begin
+0.000 0.000 1.000 nodecolor
+1714 669 moveto 166 -0.5 (graph.OfflinePageRank) alignedtext
+end grestore
+end grestore
+
+%	.graph2rankvalue
+gsave 10 dict begin
+1598 602 71 18 ellipse_path
+stroke
+gsave 10 dict begin
+0.000 0.000 1.000 nodecolor
+1598 597 moveto 120 -0.5 (.graph2rankvalue) alignedtext
+end grestore
+end grestore
+
+%	graph.OfflinePageRank -> .graph2rankvalue
+newpath 1685 656 moveto
+1669 647 1649 634 1633 624 curveto
+stroke
+gsave 10 dict begin
+solid
+0.000 0.000 0.000 edgecolor
+newpath 1635 622 moveto
+1625 619 lineto
+1632 626 lineto
+closepath
+fill
+0.000 0.000 0.000 edgecolor
+end grestore
+
+%	store.TransposeGraph
+gsave 10 dict begin
+newpath 2294 692 moveto
+2132 692 lineto
+2132 656 lineto
+2294 656 lineto
+closepath
+stroke
+gsave 10 dict begin
+0.000 0.000 1.000 nodecolor
+2213 669 moveto 148 -0.5 (store.TransposeGraph) alignedtext
+end grestore
+end grestore
+
+%	-transposed.graph
+gsave 10 dict begin
+2410 602 71 18 ellipse_path
+stroke
+gsave 10 dict begin
+0.000 0.000 1.000 nodecolor
+2410 597 moveto 120 -0.5 (-transposed.graph) alignedtext
+end grestore
+end grestore
+
+%	store.TransposeGraph -> -transposed.graph
+newpath 2262 656 moveto
+2292 645 2329 631 2360 620 curveto
+stroke
+gsave 10 dict begin
+solid
+0.000 0.000 0.000 edgecolor
+newpath 2361 622 moveto
+2370 617 lineto
+2360 617 lineto
+closepath
+fill
+0.000 0.000 0.000 edgecolor
+end grestore
+
+%	-transposed.graph2bitoffset
+gsave 10 dict begin
+2217 602 104 18 ellipse_path
+stroke
+gsave 10 dict begin
+0.000 0.000 1.000 nodecolor
+2217 597 moveto 187 -0.5 (-transposed.graph2bitoffset) alignedtext
+end grestore
+end grestore
+
+%	store.TransposeGraph -> -transposed.graph2bitoffset
+newpath 2214 656 moveto
+2215 648 2215 639 2215 630 curveto
+stroke
+gsave 10 dict begin
+solid
+0.000 0.000 0.000 edgecolor
+newpath 2217 630 moveto
+2216 620 lineto
+2213 630 lineto
+closepath
+fill
+0.000 0.000 0.000 edgecolor
+end grestore
+
+%	store.GraphRecompressor
+gsave 10 dict begin
+newpath 2109 692 moveto
+1919 692 lineto
+1919 656 lineto
+2109 656 lineto
+closepath
+stroke
+gsave 10 dict begin
+0.000 0.000 1.000 nodecolor
+2014 669 moveto 176 -0.5 (store.GraphRecompressor) alignedtext
+end grestore
+end grestore
+
+%	-recompressed.graph
+gsave 10 dict begin
+2014 602 81 18 ellipse_path
+stroke
+gsave 10 dict begin
+0.000 0.000 1.000 nodecolor
+2014 597 moveto 140 -0.5 (-recompressed.graph) alignedtext
+end grestore
+end grestore
+
+%	store.GraphRecompressor -> -recompressed.graph
+newpath 2014 656 moveto
+2014 648 2014 639 2014 630 curveto
+stroke
+gsave 10 dict begin
+solid
+0.000 0.000 0.000 edgecolor
+newpath 2017 630 moveto
+2014 620 lineto
+2012 630 lineto
+closepath
+fill
+0.000 0.000 0.000 edgecolor
+end grestore
+
+%	-recompressed.graph2bitoffset
+gsave 10 dict begin
+1801 602 114 18 ellipse_path
+stroke
+gsave 10 dict begin
+0.000 0.000 1.000 nodecolor
+1801 597 moveto 207 -0.5 (-recompressed.graph2bitoffset) alignedtext
+end grestore
+end grestore
+
+%	store.GraphRecompressor -> -recompressed.graph2bitoffset
+newpath 1961 656 moveto
+1929 646 1889 632 1857 621 curveto
+stroke
+gsave 10 dict begin
+solid
+0.000 0.000 0.000 edgecolor
+newpath 1859 619 moveto
+1849 618 lineto
+1857 624 lineto
+closepath
+fill
+0.000 0.000 0.000 edgecolor
+end grestore
+
+%	indexer.FirstPassO
+gsave 10 dict begin
+newpath 612 404 moveto
+486 404 lineto
+486 368 lineto
+612 368 lineto
+closepath
+stroke
+gsave 10 dict begin
+0.000 0.000 1.000 nodecolor
+549 381 moveto 113 -0.5 (indexer.FirstPass) alignedtext
+end grestore
+end grestore
+
+%	-text.batch
+gsave 10 dict begin
+238 314 46 18 ellipse_path
+stroke
+gsave 10 dict begin
+0.000 0.000 1.000 nodecolor
+238 309 moveto 70 -0.5 (-text.batch) alignedtext
+end grestore
+end grestore
+
+%	indexer.FirstPassO -> -text.batch
+newpath 486 372 moveto
+438 361 370 345 311 332 curveto
+303 330 294 328 286 326 curveto
+stroke
+gsave 10 dict begin
+solid
+0.000 0.000 0.000 edgecolor
+newpath 287 324 moveto
+277 324 lineto
+286 329 lineto
+closepath
+fill
+0.000 0.000 0.000 edgecolor
+end grestore
+
+%	-text.properties
+gsave 10 dict begin
+619 170 61 18 ellipse_path
+stroke
+gsave 10 dict begin
+0.000 0.000 1.000 nodecolor
+619 165 moveto 100 -0.5 (-text.properties) alignedtext
+end grestore
+end grestore
+
+%	indexer.FirstPassO -> -text.properties
+newpath 572 368 moveto
+582 358 594 346 600 332 curveto
+621 288 622 231 621 197 curveto
+stroke
+gsave 10 dict begin
+solid
+0.000 0.000 0.000 edgecolor
+newpath 624 198 moveto
+621 188 lineto
+619 198 lineto
+closepath
+fill
+0.000 0.000 0.000 edgecolor
+end grestore
+
+%	-text.terms
+gsave 10 dict begin
+120 170 46 18 ellipse_path
+stroke
+gsave 10 dict begin
+0.000 0.000 1.000 nodecolor
+120 165 moveto 71 -0.5 (-text.terms) alignedtext
+end grestore
+end grestore
+
+%	indexer.FirstPassO -> -text.terms
+newpath 486 371 moveto
+485 370 485 370 484 370 curveto
+477 367 476 366 468 364 curveto
+467 363 348 332 346 332 curveto
+293 298 305 261 254 224 curveto
+247 218 200 198 166 184 curveto
+stroke
+gsave 10 dict begin
+solid
+0.000 0.000 0.000 edgecolor
+newpath 167 182 moveto
+157 181 lineto
+166 187 lineto
+closepath
+fill
+0.000 0.000 0.000 edgecolor
+end grestore
+
+%	-text.frequencies
+gsave 10 dict begin
+422 314 67 18 ellipse_path
+stroke
+gsave 10 dict begin
+0.000 0.000 1.000 nodecolor
+422 309 moveto 112 -0.5 (-text.frequencies) alignedtext
+end grestore
+end grestore
+
+%	indexer.FirstPassO -> -text.frequencies
+newpath 517 368 moveto
+499 358 477 346 458 335 curveto
+stroke
+gsave 10 dict begin
+solid
+0.000 0.000 0.000 edgecolor
+newpath 460 333 moveto
+450 330 lineto
+457 337 lineto
+closepath
+fill
+0.000 0.000 0.000 edgecolor
+end grestore
+
+%	-text.sizes
+gsave 10 dict begin
+549 314 42 18 ellipse_path
+stroke
+gsave 10 dict begin
+0.000 0.000 1.000 nodecolor
+549 309 moveto 63 -0.5 (-text.sizes) alignedtext
+end grestore
+end grestore
+
+%	indexer.FirstPassO -> -text.sizes
+newpath 549 368 moveto
+549 360 549 351 549 342 curveto
+stroke
+gsave 10 dict begin
+solid
+0.000 0.000 0.000 edgecolor
+newpath 552 342 moveto
+549 332 lineto
+547 342 lineto
+closepath
+fill
+0.000 0.000 0.000 edgecolor
+end grestore
+
+%	indexer.SecondPassO
+gsave 10 dict begin
+newpath 531 260 moveto
+387 260 lineto
+387 224 lineto
+531 224 lineto
+closepath
+stroke
+gsave 10 dict begin
+0.000 0.000 1.000 nodecolor
+459 237 moveto 131 -0.5 (indexer.SecondPass) alignedtext
+end grestore
+end grestore
+
+%	indexer.SecondPassO -> -text.properties
+newpath 493 224 moveto
+517 213 548 199 573 188 curveto
+stroke
+gsave 10 dict begin
+solid
+0.000 0.000 0.000 edgecolor
+newpath 574 190 moveto
+582 184 lineto
+572 186 lineto
+closepath
+fill
+0.000 0.000 0.000 edgecolor
+end grestore
+
+%	-text.index
+gsave 10 dict begin
+494 170 46 18 ellipse_path
+stroke
+gsave 10 dict begin
+0.000 0.000 1.000 nodecolor
+494 165 moveto 71 -0.5 (-text.index) alignedtext
+end grestore
+end grestore
+
+%	indexer.SecondPassO -> -text.index
+newpath 468 224 moveto
+472 216 477 206 481 197 curveto
+stroke
+gsave 10 dict begin
+solid
+0.000 0.000 0.000 edgecolor
+newpath 483 198 moveto
+485 188 lineto
+479 196 lineto
+closepath
+fill
+0.000 0.000 0.000 edgecolor
+end grestore
+
+%	-text.offsets
+gsave 10 dict begin
+234 170 50 18 ellipse_path
+stroke
+gsave 10 dict begin
+0.000 0.000 1.000 nodecolor
+234 165 moveto 79 -0.5 (-text.offsets) alignedtext
+end grestore
+end grestore
+
+%	indexer.SecondPassO -> -text.offsets
+newpath 403 224 moveto
+365 212 315 196 279 185 curveto
+stroke
+gsave 10 dict begin
+solid
+0.000 0.000 0.000 edgecolor
+newpath 281 183 moveto
+271 182 lineto
+279 188 lineto
+closepath
+fill
+0.000 0.000 0.000 edgecolor
+end grestore
+
+%	-text.globcounts
+gsave 10 dict begin
+366 170 64 18 ellipse_path
+stroke
+gsave 10 dict begin
+0.000 0.000 1.000 nodecolor
+366 165 moveto 107 -0.5 (-text.globcounts) alignedtext
+end grestore
+end grestore
+
+%	indexer.SecondPassO -> -text.globcounts
+newpath 436 224 moveto
+423 215 408 203 395 193 curveto
+stroke
+gsave 10 dict begin
+solid
+0.000 0.000 0.000 edgecolor
+newpath 397 192 moveto
+388 187 lineto
+394 195 lineto
+closepath
+fill
+0.000 0.000 0.000 edgecolor
+end grestore
+
+%	indexer.MiddlePassO
+gsave 10 dict begin
+newpath 245 260 moveto
+101 260 lineto
+101 224 lineto
+245 224 lineto
+closepath
+stroke
+gsave 10 dict begin
+0.000 0.000 1.000 nodecolor
+173 237 moveto 131 -0.5 (indexer.MiddlePass) alignedtext
+end grestore
+end grestore
+
+%	indexer.MiddlePassO -> -text.batch
+newpath 222 289 moveto
+214 279 204 269 195 260 curveto
+stroke
+gsave 10 dict begin
+solid
+0.000 0.000 0.000 edgecolor
+newpath 220 290 moveto
+228 296 lineto
+223 287 lineto
+closepath
+fill
+0.000 0.000 0.000 edgecolor
+end grestore
+
+%	indexer.MiddlePassO -> -text.terms
+newpath 154 224 moveto
+147 215 139 205 132 196 curveto
+stroke
+gsave 10 dict begin
+solid
+0.000 0.000 0.000 edgecolor
+newpath 134 195 moveto
+127 188 lineto
+130 198 lineto
+closepath
+fill
+0.000 0.000 0.000 edgecolor
+end grestore
+
+%	store.MinimalPerfectHashBulderO
+gsave 10 dict begin
+newpath 240 116 moveto
+0 116 lineto
+0 80 lineto
+240 80 lineto
+closepath
+stroke
+gsave 10 dict begin
+0.000 0.000 1.000 nodecolor
+120 93 moveto 226 -0.5 (store.MinimalPerfectHashBulder) alignedtext
+end grestore
+end grestore
+
+%	-text.string2term
+gsave 10 dict begin
+120 26 67 18 ellipse_path
+stroke
+gsave 10 dict begin
+0.000 0.000 1.000 nodecolor
+120 21 moveto 112 -0.5 (-text.string2term) alignedtext
+end grestore
+end grestore
+
+%	store.MinimalPerfectHashBulderO -> -text.string2term
+newpath 120 80 moveto
+120 72 120 63 120 54 curveto
+stroke
+gsave 10 dict begin
+solid
+0.000 0.000 0.000 edgecolor
+newpath 123 54 moveto
+120 44 lineto
+118 54 lineto
+closepath
+fill
+0.000 0.000 0.000 edgecolor
+end grestore
+
+%	indexer.FirstPassT
+gsave 10 dict begin
+newpath 2161 404 moveto
+2035 404 lineto
+2035 368 lineto
+2161 368 lineto
+closepath
+stroke
+gsave 10 dict begin
+0.000 0.000 1.000 nodecolor
+2098 381 moveto 113 -0.5 (indexer.FirstPass) alignedtext
+end grestore
+end grestore
+
+%	-title.batch
+gsave 10 dict begin
+2228 314 46 18 ellipse_path
+stroke
+gsave 10 dict begin
+0.000 0.000 1.000 nodecolor
+2228 309 moveto 70 -0.5 (-title.batch) alignedtext
+end grestore
+end grestore
+
+%	indexer.FirstPassT -> -title.batch
+newpath 2131 368 moveto
+2150 357 2174 344 2193 333 curveto
+stroke
+gsave 10 dict begin
+solid
+0.000 0.000 0.000 edgecolor
+newpath 2193 336 moveto
+2201 329 lineto
+2191 331 lineto
+closepath
+fill
+0.000 0.000 0.000 edgecolor
+end grestore
+
+%	-title.properties
+gsave 10 dict begin
+1830 170 60 18 ellipse_path
+stroke
+gsave 10 dict begin
+0.000 0.000 1.000 nodecolor
+1830 165 moveto 99 -0.5 (-title.properties) alignedtext
+end grestore
+end grestore
+
+%	indexer.FirstPassT -> -title.properties
+newpath 2035 378 moveto
+1990 371 1965 368 1921 332 curveto
+1878 296 1851 234 1838 198 curveto
+stroke
+gsave 10 dict begin
+solid
+0.000 0.000 0.000 edgecolor
+newpath 1840 197 moveto
+1835 188 lineto
+1835 198 lineto
+closepath
+fill
+0.000 0.000 0.000 edgecolor
+end grestore
+
+%	-title.terms
+gsave 10 dict begin
+2328 170 46 18 ellipse_path
+stroke
+gsave 10 dict begin
+0.000 0.000 1.000 nodecolor
+2328 165 moveto 70 -0.5 (-title.terms) alignedtext
+end grestore
+end grestore
+
+%	indexer.FirstPassT -> -title.terms
+newpath 2161 379 moveto
+2212 372 2241 374 2283 332 curveto
+2319 296 2327 235 2329 199 curveto
+stroke
+gsave 10 dict begin
+solid
+0.000 0.000 0.000 edgecolor
+newpath 2332 198 moveto
+2329 188 lineto
+2327 198 lineto
+closepath
+fill
+0.000 0.000 0.000 edgecolor
+end grestore
+
+%	-title.frequencies
+gsave 10 dict begin
+2098 314 66 18 ellipse_path
+stroke
+gsave 10 dict begin
+0.000 0.000 1.000 nodecolor
+2098 309 moveto 111 -0.5 (-title.frequencies) alignedtext
+end grestore
+end grestore
+
+%	indexer.FirstPassT -> -title.frequencies
+newpath 2098 368 moveto
+2098 360 2098 351 2098 342 curveto
+stroke
+gsave 10 dict begin
+solid
+0.000 0.000 0.000 edgecolor
+newpath 2101 342 moveto
+2098 332 lineto
+2096 342 lineto
+closepath
+fill
+0.000 0.000 0.000 edgecolor
+end grestore
+
+%	-title.sizes
+gsave 10 dict begin
+1972 314 42 18 ellipse_path
+stroke
+gsave 10 dict begin
+0.000 0.000 1.000 nodecolor
+1972 309 moveto 62 -0.5 (-title.sizes) alignedtext
+end grestore
+end grestore
+
+%	indexer.FirstPassT -> -title.sizes
+newpath 2066 368 moveto
+2048 358 2024 344 2005 333 curveto
+stroke
+gsave 10 dict begin
+solid
+0.000 0.000 0.000 edgecolor
+newpath 2007 331 moveto
+1997 328 lineto
+2004 335 lineto
+closepath
+fill
+0.000 0.000 0.000 edgecolor
+end grestore
+
+%	indexer.SecondPassT
+gsave 10 dict begin
+newpath 2091 260 moveto
+1947 260 lineto
+1947 224 lineto
+2091 224 lineto
+closepath
+stroke
+gsave 10 dict begin
+0.000 0.000 1.000 nodecolor
+2019 237 moveto 131 -0.5 (indexer.SecondPass) alignedtext
+end grestore
+end grestore
+
+%	indexer.SecondPassT -> -title.properties
+newpath 1966 224 moveto
+1936 213 1900 199 1873 188 curveto
+stroke
+gsave 10 dict begin
+solid
+0.000 0.000 0.000 edgecolor
+newpath 1874 186 moveto
+1864 185 lineto
+1873 191 lineto
+closepath
+fill
+0.000 0.000 0.000 edgecolor
+end grestore
+
+%	-title.index
+gsave 10 dict begin
+2218 170 46 18 ellipse_path
+stroke
+gsave 10 dict begin
+0.000 0.000 1.000 nodecolor
+2218 165 moveto 70 -0.5 (-title.index) alignedtext
+end grestore
+end grestore
+
+%	indexer.SecondPassT -> -title.index
+newpath 2069 224 moveto
+2101 212 2144 197 2174 186 curveto
+stroke
+gsave 10 dict begin
+solid
+0.000 0.000 0.000 edgecolor
+newpath 2176 188 moveto
+2184 182 lineto
+2174 183 lineto
+closepath
+fill
+0.000 0.000 0.000 edgecolor
+end grestore
+
+%	-title.offsets
+gsave 10 dict begin
+1958 170 50 18 ellipse_path
+stroke
+gsave 10 dict begin
+0.000 0.000 1.000 nodecolor
+1958 165 moveto 79 -0.5 (-title.offsets) alignedtext
+end grestore
+end grestore
+
+%	indexer.SecondPassT -> -title.offsets
+newpath 2004 224 moveto
+1997 215 1987 205 1979 195 curveto
+stroke
+gsave 10 dict begin
+solid
+0.000 0.000 0.000 edgecolor
+newpath 1981 194 moveto
+1973 188 lineto
+1978 197 lineto
+closepath
+fill
+0.000 0.000 0.000 edgecolor
+end grestore
+
+%	-title.globcounts
+gsave 10 dict begin
+2090 170 64 18 ellipse_path
+stroke
+gsave 10 dict begin
+0.000 0.000 1.000 nodecolor
+2090 165 moveto 106 -0.5 (-title.globcounts) alignedtext
+end grestore
+end grestore
+
+%	indexer.SecondPassT -> -title.globcounts
+newpath 2037 224 moveto
+2046 215 2057 204 2066 195 curveto
+stroke
+gsave 10 dict begin
+solid
+0.000 0.000 0.000 edgecolor
+newpath 2068 197 moveto
+2073 188 lineto
+2064 193 lineto
+closepath
+fill
+0.000 0.000 0.000 edgecolor
+end grestore
+
+%	indexer.MiddlePassT
+gsave 10 dict begin
+newpath 2300 260 moveto
+2156 260 lineto
+2156 224 lineto
+2300 224 lineto
+closepath
+stroke
+gsave 10 dict begin
+0.000 0.000 1.000 nodecolor
+2228 237 moveto 131 -0.5 (indexer.MiddlePass) alignedtext
+end grestore
+end grestore
+
+%	indexer.MiddlePassT -> -title.batch
+newpath 2235 287 moveto
+2235 278 2235 268 2234 260 curveto
+stroke
+gsave 10 dict begin
+solid
+0.000 0.000 0.000 edgecolor
+newpath 2233 286 moveto
+2234 296 lineto
+2238 286 lineto
+closepath
+fill
+0.000 0.000 0.000 edgecolor
+end grestore
+
+%	indexer.MiddlePassT -> -title.terms
+newpath 2247 224 moveto
+2261 214 2279 201 2294 190 curveto
+stroke
+gsave 10 dict begin
+solid
+0.000 0.000 0.000 edgecolor
+newpath 2295 192 moveto
+2302 185 lineto
+2292 188 lineto
+closepath
+fill
+0.000 0.000 0.000 edgecolor
+end grestore
+
+%	store.MinimalPerfectHashBulderT
+gsave 10 dict begin
+newpath 2386 116 moveto
+2146 116 lineto
+2146 80 lineto
+2386 80 lineto
+closepath
+stroke
+gsave 10 dict begin
+0.000 0.000 1.000 nodecolor
+2266 93 moveto 226 -0.5 (store.MinimalPerfectHashBulder) alignedtext
+end grestore
+end grestore
+
+%	-title.string2term
+gsave 10 dict begin
+2266 26 67 18 ellipse_path
+stroke
+gsave 10 dict begin
+0.000 0.000 1.000 nodecolor
+2266 21 moveto 112 -0.5 (-title.string2term) alignedtext
+end grestore
+end grestore
+
+%	store.MinimalPerfectHashBulderT -> -title.string2term
+newpath 2266 80 moveto
+2266 72 2266 63 2266 54 curveto
+stroke
+gsave 10 dict begin
+solid
+0.000 0.000 0.000 edgecolor
+newpath 2269 54 moveto
+2266 44 lineto
+2264 54 lineto
+closepath
+fill
+0.000 0.000 0.000 edgecolor
+end grestore
+
+%	indexer.FirstPassU
+gsave 10 dict begin
+newpath 2610 404 moveto
+2484 404 lineto
+2484 368 lineto
+2610 368 lineto
+closepath
+stroke
+gsave 10 dict begin
+0.000 0.000 1.000 nodecolor
+2547 381 moveto 113 -0.5 (indexer.FirstPass) alignedtext
+end grestore
+end grestore
+
+%	-urltokens.batch
+gsave 10 dict begin
+2475 314 65 18 ellipse_path
+stroke
+gsave 10 dict begin
+0.000 0.000 1.000 nodecolor
+2475 309 moveto 109 -0.5 (-urltokens.batch) alignedtext
+end grestore
+end grestore
+
+%	indexer.FirstPassU -> -urltokens.batch
+newpath 2529 368 moveto
+2520 359 2509 348 2500 339 curveto
+stroke
+gsave 10 dict begin
+solid
+0.000 0.000 0.000 edgecolor
+newpath 2502 337 moveto
+2493 332 lineto
+2498 341 lineto
+closepath
+fill
+0.000 0.000 0.000 edgecolor
+end grestore
+
+%	-urltokens.properties
+gsave 10 dict begin
+3115 170 80 18 ellipse_path
+stroke
+gsave 10 dict begin
+0.000 0.000 1.000 nodecolor
+3115 165 moveto 139 -0.5 (-urltokens.properties) alignedtext
+end grestore
+end grestore
+
+%	indexer.FirstPassU -> -urltokens.properties
+newpath 2610 384 moveto
+2731 370 2766 378 2879 332 curveto
+2962 296 3046 229 3088 193 curveto
+stroke
+gsave 10 dict begin
+solid
+0.000 0.000 0.000 edgecolor
+newpath 3089 195 moveto
+3095 187 lineto
+3086 192 lineto
+closepath
+fill
+0.000 0.000 0.000 edgecolor
+end grestore
+
+%	-urltokens.terms
+gsave 10 dict begin
+2462 170 65 18 ellipse_path
+stroke
+gsave 10 dict begin
+0.000 0.000 1.000 nodecolor
+2462 165 moveto 109 -0.5 (-urltokens.terms) alignedtext
+end grestore
+end grestore
+
+%	indexer.FirstPassU -> -urltokens.terms
+newpath 2484 375 moveto
+2451 370 2427 367 2401 332 curveto
+2373 293 2374 267 2394 224 curveto
+2401 211 2412 200 2423 191 curveto
+stroke
+gsave 10 dict begin
+solid
+0.000 0.000 0.000 edgecolor
+newpath 2424 193 moveto
+2431 186 lineto
+2421 189 lineto
+closepath
+fill
+0.000 0.000 0.000 edgecolor
+end grestore
+
+%	-urltokens.frequencies
+gsave 10 dict begin
+2644 314 86 18 ellipse_path
+stroke
+gsave 10 dict begin
+0.000 0.000 1.000 nodecolor
+2644 309 moveto 150 -0.5 (-urltokens.frequencies) alignedtext
+end grestore
+end grestore
+
+%	indexer.FirstPassU -> -urltokens.frequencies
+newpath 2571 368 moveto
+2584 359 2600 347 2613 337 curveto
+stroke
+gsave 10 dict begin
+solid
+0.000 0.000 0.000 edgecolor
+newpath 2615 339 moveto
+2621 331 lineto
+2611 335 lineto
+closepath
+fill
+0.000 0.000 0.000 edgecolor
+end grestore
+
+%	-urltokens.sizes
+gsave 10 dict begin
+2809 314 61 18 ellipse_path
+stroke
+gsave 10 dict begin
+0.000 0.000 1.000 nodecolor
+2809 309 moveto 101 -0.5 (-urltokens.sizes) alignedtext
+end grestore
+end grestore
+
+%	indexer.FirstPassU -> -urltokens.sizes
+newpath 2610 369 moveto
+2655 357 2714 340 2755 328 curveto
+stroke
+gsave 10 dict begin
+solid
+0.000 0.000 0.000 edgecolor
+newpath 2755 331 moveto
+2764 326 lineto
+2754 326 lineto
+closepath
+fill
+0.000 0.000 0.000 edgecolor
+end grestore
+
+%	indexer.SecondPassU
+gsave 10 dict begin
+newpath 2876 260 moveto
+2732 260 lineto
+2732 224 lineto
+2876 224 lineto
+closepath
+stroke
+gsave 10 dict begin
+0.000 0.000 1.000 nodecolor
+2804 237 moveto 131 -0.5 (indexer.SecondPass) alignedtext
+end grestore
+end grestore
+
+%	indexer.SecondPassU -> -urltokens.properties
+newpath 2876 224 moveto
+2928 212 2997 196 3049 184 curveto
+stroke
+gsave 10 dict begin
+solid
+0.000 0.000 0.000 edgecolor
+newpath 3048 187 moveto
+3057 182 lineto
+3047 182 lineto
+closepath
+fill
+0.000 0.000 0.000 edgecolor
+end grestore
+
+%	-urltokens.index
+gsave 10 dict begin
+2794 170 65 18 ellipse_path
+stroke
+gsave 10 dict begin
+0.000 0.000 1.000 nodecolor
+2794 165 moveto 109 -0.5 (-urltokens.index) alignedtext
+end grestore
+end grestore
+
+%	indexer.SecondPassU -> -urltokens.index
+newpath 2801 224 moveto
+2800 216 2799 206 2798 198 curveto
+stroke
+gsave 10 dict begin
+solid
+0.000 0.000 0.000 edgecolor
+newpath 2800 198 moveto
+2797 188 lineto
+2796 198 lineto
+closepath
+fill
+0.000 0.000 0.000 edgecolor
+end grestore
+
+%	-urltokens.offsets
+gsave 10 dict begin
+2947 170 70 18 ellipse_path
+stroke
+gsave 10 dict begin
+0.000 0.000 1.000 nodecolor
+2947 165 moveto 118 -0.5 (-urltokens.offsets) alignedtext
+end grestore
+end grestore
+
+%	indexer.SecondPassU -> -urltokens.offsets
+newpath 2840 224 moveto
+2860 214 2886 201 2907 190 curveto
+stroke
+gsave 10 dict begin
+solid
+0.000 0.000 0.000 edgecolor
+newpath 2907 193 moveto
+2915 186 lineto
+2905 188 lineto
+closepath
+fill
+0.000 0.000 0.000 edgecolor
+end grestore
+
+%	-urltokens.globcounts
+gsave 10 dict begin
+2628 170 83 18 ellipse_path
+stroke
+gsave 10 dict begin
+0.000 0.000 1.000 nodecolor
+2628 165 moveto 145 -0.5 (-urltokens.globcounts) alignedtext
+end grestore
+end grestore
+
+%	indexer.SecondPassU -> -urltokens.globcounts
+newpath 2760 224 moveto
+2734 213 2701 200 2675 189 curveto
+stroke
+gsave 10 dict begin
+solid
+0.000 0.000 0.000 edgecolor
+newpath 2677 187 moveto
+2667 186 lineto
+2675 192 lineto
+closepath
+fill
+0.000 0.000 0.000 edgecolor
+end grestore
+
+%	indexer.MiddlePassU
+gsave 10 dict begin
+newpath 2547 260 moveto
+2403 260 lineto
+2403 224 lineto
+2547 224 lineto
+closepath
+stroke
+gsave 10 dict begin
+0.000 0.000 1.000 nodecolor
+2475 237 moveto 131 -0.5 (indexer.MiddlePass) alignedtext
+end grestore
+end grestore
+
+%	indexer.MiddlePassU -> -urltokens.batch
+newpath 2482 287 moveto
+2482 278 2482 268 2481 260 curveto
+stroke
+gsave 10 dict begin
+solid
+0.000 0.000 0.000 edgecolor
+newpath 2480 286 moveto
+2481 296 lineto
+2485 286 lineto
+closepath
+fill
+0.000 0.000 0.000 edgecolor
+end grestore
+
+%	indexer.MiddlePassU -> -urltokens.terms
+newpath 2466 224 moveto
+2464 216 2462 206 2460 198 curveto
+stroke
+gsave 10 dict begin
+solid
+0.000 0.000 0.000 edgecolor
+newpath 2462 198 moveto
+2459 188 lineto
+2458 198 lineto
+closepath
+fill
+0.000 0.000 0.000 edgecolor
+end grestore
+
+%	store.MinimalPerfectHashBulderU
+gsave 10 dict begin
+newpath 2644 116 moveto
+2404 116 lineto
+2404 80 lineto
+2644 80 lineto
+closepath
+stroke
+gsave 10 dict begin
+0.000 0.000 1.000 nodecolor
+2524 93 moveto 226 -0.5 (store.MinimalPerfectHashBulder) alignedtext
+end grestore
+end grestore
+
+%	-urltokens.string2term
+gsave 10 dict begin
+2524 26 86 18 ellipse_path
+stroke
+gsave 10 dict begin
+0.000 0.000 1.000 nodecolor
+2524 21 moveto 151 -0.5 (-urltokens.string2term) alignedtext
+end grestore
+end grestore
+
+%	store.MinimalPerfectHashBulderU -> -urltokens.string2term
+newpath 2524 80 moveto
+2524 72 2524 63 2524 54 curveto
+stroke
+gsave 10 dict begin
+solid
+0.000 0.000 0.000 edgecolor
+newpath 2527 54 moveto
+2524 44 lineto
+2522 54 lineto
+closepath
+fill
+0.000 0.000 0.000 edgecolor
+end grestore
+
+%	indexer.SecondPassA
+gsave 10 dict begin
+newpath 1239 260 moveto
+1095 260 lineto
+1095 224 lineto
+1239 224 lineto
+closepath
+stroke
+gsave 10 dict begin
+0.000 0.000 1.000 nodecolor
+1167 237 moveto 131 -0.5 (indexer.SecondPass) alignedtext
+end grestore
+end grestore
+
+%	-anchors.properties
+gsave 10 dict begin
+773 170 75 18 ellipse_path
+stroke
+gsave 10 dict begin
+0.000 0.000 1.000 nodecolor
+773 165 moveto 128 -0.5 (-anchors.properties) alignedtext
+end grestore
+end grestore
+
+%	indexer.SecondPassA -> -anchors.properties
+newpath 1095 231 moveto
+1030 221 933 204 848 188 curveto
+843 187 838 186 833 185 curveto
+stroke
+gsave 10 dict begin
+solid
+0.000 0.000 0.000 edgecolor
+newpath 835 183 moveto
+825 183 lineto
+834 188 lineto
+closepath
+fill
+0.000 0.000 0.000 edgecolor
+end grestore
+
+%	-anchors.frequencies
+gsave 10 dict begin
+946 170 80 18 ellipse_path
+stroke
+gsave 10 dict begin
+0.000 0.000 1.000 nodecolor
+946 165 moveto 139 -0.5 (-anchors.frequencies) alignedtext
+end grestore
+end grestore
+
+%	indexer.SecondPassA -> -anchors.frequencies
+newpath 1112 224 moveto
+1078 213 1034 199 1000 188 curveto
+stroke
+gsave 10 dict begin
+solid
+0.000 0.000 0.000 edgecolor
+newpath 1001 186 moveto
+991 185 lineto
+1000 191 lineto
+closepath
+fill
+0.000 0.000 0.000 edgecolor
+end grestore
+
+%	-anchors.sizes
+gsave 10 dict begin
+1100 170 56 18 ellipse_path
+stroke
+gsave 10 dict begin
+0.000 0.000 1.000 nodecolor
+1100 165 moveto 90 -0.5 (-anchors.sizes) alignedtext
+end grestore
+end grestore
+
+%	indexer.SecondPassA -> -anchors.sizes
+newpath 1150 224 moveto
+1142 215 1131 205 1122 195 curveto
+stroke
+gsave 10 dict begin
+solid
+0.000 0.000 0.000 edgecolor
+newpath 1124 194 moveto
+1116 188 lineto
+1121 197 lineto
+closepath
+fill
+0.000 0.000 0.000 edgecolor
+end grestore
+
+%	-anchors.index
+gsave 10 dict begin
+1234 170 60 18 ellipse_path
+stroke
+gsave 10 dict begin
+0.000 0.000 1.000 nodecolor
+1234 165 moveto 98 -0.5 (-anchors.index) alignedtext
+end grestore
+end grestore
+
+%	indexer.SecondPassA -> -anchors.index
+newpath 1184 224 moveto
+1192 215 1203 205 1212 195 curveto
+stroke
+gsave 10 dict begin
+solid
+0.000 0.000 0.000 edgecolor
+newpath 1213 197 moveto
+1218 188 lineto
+1210 194 lineto
+closepath
+fill
+0.000 0.000 0.000 edgecolor
+end grestore
+
+%	-anchors.offsets
+gsave 10 dict begin
+1376 170 64 18 ellipse_path
+stroke
+gsave 10 dict begin
+0.000 0.000 1.000 nodecolor
+1376 165 moveto 107 -0.5 (-anchors.offsets) alignedtext
+end grestore
+end grestore
+
+%	indexer.SecondPassA -> -anchors.offsets
+newpath 1219 224 moveto
+1252 213 1294 198 1327 187 curveto
+stroke
+gsave 10 dict begin
+solid
+0.000 0.000 0.000 edgecolor
+newpath 1327 190 moveto
+1336 184 lineto
+1326 185 lineto
+closepath
+fill
+0.000 0.000 0.000 edgecolor
+end grestore
+
+%	-anchors.globcounts
+gsave 10 dict begin
+1536 170 78 18 ellipse_path
+stroke
+gsave 10 dict begin
+0.000 0.000 1.000 nodecolor
+1536 165 moveto 134 -0.5 (-anchors.globcounts) alignedtext
+end grestore
+end grestore
+
+%	indexer.SecondPassA -> -anchors.globcounts
+newpath 1239 228 moveto
+1296 217 1378 202 1449 188 curveto
+1455 187 1462 185 1469 184 curveto
+stroke
+gsave 10 dict begin
+solid
+0.000 0.000 0.000 edgecolor
+newpath 1469 187 moveto
+1478 182 lineto
+1468 182 lineto
+closepath
+fill
+0.000 0.000 0.000 edgecolor
+end grestore
+
+%	indexer.MiddlePassA
+gsave 10 dict begin
+newpath 1641 260 moveto
+1497 260 lineto
+1497 224 lineto
+1641 224 lineto
+closepath
+stroke
+gsave 10 dict begin
+0.000 0.000 1.000 nodecolor
+1569 237 moveto 131 -0.5 (indexer.MiddlePass) alignedtext
+end grestore
+end grestore
+
+%	-anchors.batch
+gsave 10 dict begin
+1564 314 60 18 ellipse_path
+stroke
+gsave 10 dict begin
+0.000 0.000 1.000 nodecolor
+1564 309 moveto 98 -0.5 (-anchors.batch) alignedtext
+end grestore
+end grestore
+
+%	indexer.MiddlePassA -> -anchors.batch
+newpath 1572 287 moveto
+1573 278 1574 268 1574 260 curveto
+stroke
+gsave 10 dict begin
+solid
+0.000 0.000 0.000 edgecolor
+newpath 1570 286 moveto
+1571 296 lineto
+1575 286 lineto
+closepath
+fill
+0.000 0.000 0.000 edgecolor
+end grestore
+
+%	-anchors.terms
+gsave 10 dict begin
+1692 170 60 18 ellipse_path
+stroke
+gsave 10 dict begin
+0.000 0.000 1.000 nodecolor
+1692 165 moveto 98 -0.5 (-anchors.terms) alignedtext
+end grestore
+end grestore
+
+%	indexer.MiddlePassA -> -anchors.terms
+newpath 1594 224 moveto
+1611 214 1632 201 1652 190 curveto
+stroke
+gsave 10 dict begin
+solid
+0.000 0.000 0.000 edgecolor
+newpath 1653 192 moveto
+1660 185 lineto
+1650 188 lineto
+closepath
+fill
+0.000 0.000 0.000 edgecolor
+end grestore
+
+%	store.MinimalPerfectHashBulderA
+gsave 10 dict begin
+newpath 1812 116 moveto
+1572 116 lineto
+1572 80 lineto
+1812 80 lineto
+closepath
+stroke
+gsave 10 dict begin
+0.000 0.000 1.000 nodecolor
+1692 93 moveto 226 -0.5 (store.MinimalPerfectHashBulder) alignedtext
+end grestore
+end grestore
+
+%	-anchors.string2term
+gsave 10 dict begin
+1692 26 81 18 ellipse_path
+stroke
+gsave 10 dict begin
+0.000 0.000 1.000 nodecolor
+1692 21 moveto 140 -0.5 (-anchors.string2term) alignedtext
+end grestore
+end grestore
+
+%	store.MinimalPerfectHashBulderA -> -anchors.string2term
+newpath 1692 80 moveto
+1692 72 1692 63 1692 54 curveto
+stroke
+gsave 10 dict begin
+solid
+0.000 0.000 0.000 edgecolor
+newpath 1695 54 moveto
+1692 44 lineto
+1690 54 lineto
+closepath
+fill
+0.000 0.000 0.000 edgecolor
+end grestore
+
+%	store.HasherS
+gsave 10 dict begin
+newpath 1973 1124 moveto
+1877 1124 lineto
+1877 1088 lineto
+1973 1088 lineto
+closepath
+stroke
+gsave 10 dict begin
+0.000 0.000 1.000 nodecolor
+1925 1101 moveto 83 -0.5 (store.Hasher) alignedtext
+end grestore
+end grestore
+
+%	.store2crc
+gsave 10 dict begin
+1630 1034 42 18 ellipse_path
+stroke
+gsave 10 dict begin
+0.000 0.000 1.000 nodecolor
+1630 1029 moveto 62 -0.5 (.store2crc) alignedtext
+end grestore
+end grestore
+
+%	store.HasherS -> .store2crc
+newpath 1877 1094 moveto
+1821 1081 1730 1059 1676 1045 curveto
+stroke
+gsave 10 dict begin
+solid
+0.000 0.000 0.000 edgecolor
+newpath 1677 1043 moveto
+1667 1043 lineto
+1676 1048 lineto
+closepath
+fill
+0.000 0.000 0.000 edgecolor
+end grestore
+
+%	store.HasherG
+gsave 10 dict begin
+newpath 2048 980 moveto
+1952 980 lineto
+1952 944 lineto
+2048 944 lineto
+closepath
+stroke
+gsave 10 dict begin
+0.000 0.000 1.000 nodecolor
+2000 957 moveto 83 -0.5 (store.Hasher) alignedtext
+end grestore
+end grestore
+
+%	.graph2crc
+gsave 10 dict begin
+2015 890 46 18 ellipse_path
+stroke
+gsave 10 dict begin
+0.000 0.000 1.000 nodecolor
+2015 885 moveto 71 -0.5 (.graph2crc) alignedtext
+end grestore
+end grestore
+
+%	store.HasherG -> .graph2crc
+newpath 2004 944 moveto
+2005 936 2007 926 2009 918 curveto
+stroke
+gsave 10 dict begin
+solid
+0.000 0.000 0.000 edgecolor
+newpath 2011 918 moveto
+2011 908 lineto
+2007 917 lineto
+closepath
+fill
+0.000 0.000 0.000 edgecolor
+end grestore
+
+%	sort
+gsave 10 dict begin
+newpath 2051 1124 moveto
+1997 1124 lineto
+1997 1088 lineto
+2051 1088 lineto
+closepath
+stroke
+gsave 10 dict begin
+0.000 0.000 1.000 nodecolor
+2024 1101 moveto 25 -0.5 (sort) alignedtext
+end grestore
+end grestore
+
+%	.graph2url
+gsave 10 dict begin
+2015 1034 46 18 ellipse_path
+stroke
+gsave 10 dict begin
+0.000 0.000 1.000 nodecolor
+2015 1029 moveto 70 -0.5 (.graph2url) alignedtext
+end grestore
+end grestore
+
+%	sort -> .graph2url
+newpath 2022 1088 moveto
+2021 1080 2020 1070 2018 1062 curveto
+stroke
+gsave 10 dict begin
+solid
+0.000 0.000 0.000 edgecolor
+newpath 2020 1062 moveto
+2017 1052 lineto
+2016 1062 lineto
+closepath
+fill
+0.000 0.000 0.000 edgecolor
+end grestore
+
+%	.store -> store.Manager
+newpath 2451 1368 moveto
+2446 1358 2440 1346 2435 1338 curveto
+stroke
+gsave 10 dict begin
+solid
+0.000 0.000 0.000 edgecolor
+newpath 2448 1368 moveto
+2455 1376 lineto
+2453 1366 lineto
+closepath
+fill
+0.000 0.000 0.000 edgecolor
+end grestore
+
+%	.store -> store.Extractor
+newpath 2403 1308 moveto
+2390 1299 2374 1285 2360 1274 curveto
+stroke
+gsave 10 dict begin
+solid
+0.000 0.000 0.000 edgecolor
+newpath 2361 1272 moveto
+2352 1268 lineto
+2359 1276 lineto
+closepath
+fill
+0.000 0.000 0.000 edgecolor
+end grestore
+
+%	store.BuildGraph
+gsave 10 dict begin
+2129 818 69 18 ellipse_path
+stroke
+gsave 10 dict begin
+0.000 0.000 1.000 nodecolor
+2129 813 moveto 116 -0.5 (store.BuildGraph) alignedtext
+end grestore
+end grestore
+
+%	.store -> store.BuildGraph
+newpath 2443 1310 moveto
+2498 1280 2639 1201 2639 1178 curveto
+2639 1178 2639 1178 2639 962 curveto
+2639 873 2348 837 2206 824 curveto
+stroke
+gsave 10 dict begin
+solid
+0.000 0.000 0.000 edgecolor
+newpath 2206 822 moveto
+2196 823 lineto
+2206 826 lineto
+closepath
+fill
+0.000 0.000 0.000 edgecolor
+end grestore
+
+%	indexer.AnchorFirstPass
+gsave 10 dict begin
+1528 386 94 18 ellipse_path
+stroke
+gsave 10 dict begin
+0.000 0.000 1.000 nodecolor
+1528 381 moveto 166 -0.5 (indexer.AnchorFirstPass) alignedtext
+end grestore
+end grestore
+
+%	.anchors -> indexer.AnchorFirstPass
+newpath 1398 800 moveto
+1402 772 1409 719 1409 674 curveto
+1409 674 1409 674 1409 530 curveto
+1409 486 1420 473 1447 440 curveto
+1458 428 1472 416 1485 408 curveto
+stroke
+gsave 10 dict begin
+solid
+0.000 0.000 0.000 edgecolor
+newpath 1486 410 moveto
+1493 403 lineto
+1483 406 lineto
+closepath
+fill
+0.000 0.000 0.000 edgecolor
+end grestore
+
+%	.store2url -> store.Store2Graph
+newpath 2077 1160 moveto
+2088 1122 2113 1035 2126 990 curveto
+stroke
+gsave 10 dict begin
+solid
+0.000 0.000 0.000 edgecolor
+newpath 2129 990 moveto
+2129 980 lineto
+2124 989 lineto
+closepath
+fill
+0.000 0.000 0.000 edgecolor
+end grestore
+
+%	.store2url -> store.HasherS
+newpath 2044 1164 moveto
+2024 1154 1995 1140 1971 1128 curveto
+stroke
+gsave 10 dict begin
+solid
+0.000 0.000 0.000 edgecolor
+newpath 1972 1126 moveto
+1962 1124 lineto
+1970 1130 lineto
+closepath
+fill
+0.000 0.000 0.000 edgecolor
+end grestore
+
+%	.store2url -> sort
+newpath 2060 1161 moveto
+2055 1152 2047 1142 2041 1132 curveto
+stroke
+gsave 10 dict begin
+solid
+0.000 0.000 0.000 edgecolor
+newpath 2043 1131 moveto
+2036 1124 lineto
+2039 1134 lineto
+closepath
+fill
+0.000 0.000 0.000 edgecolor
+end grestore
+
+%	.store2urltokens -> indexer.FirstPassU
+newpath 2547 1160 moveto
+2547 1132 2548 1079 2547 1034 curveto
+2547 1034 2547 1034 2547 530 curveto
+2548 490 2547 443 2547 413 curveto
+stroke
+gsave 10 dict begin
+solid
+0.000 0.000 0.000 edgecolor
+newpath 2550 414 moveto
+2547 404 lineto
+2545 414 lineto
+closepath
+fill
+0.000 0.000 0.000 edgecolor
+end grestore
+
+%	.graph2url -> store.Store2Graph
+newpath 2040 1019 moveto
+2056 1009 2077 996 2096 985 curveto
+stroke
+gsave 10 dict begin
+solid
+0.000 0.000 0.000 edgecolor
+newpath 2097 987 moveto
+2104 980 lineto
+2094 983 lineto
+closepath
+fill
+0.000 0.000 0.000 edgecolor
+end grestore
+
+%	.graph2url -> store.Graph2URLInfo
+newpath 1984 1020 moveto
+1961 1010 1928 996 1901 984 curveto
+stroke
+gsave 10 dict begin
+solid
+0.000 0.000 0.000 edgecolor
+newpath 1902 982 moveto
+1892 980 lineto
+1900 986 lineto
+closepath
+fill
+0.000 0.000 0.000 edgecolor
+end grestore
+
+%	.graph2url -> store.HasherG
+newpath 2011 1016 moveto
+2010 1008 2008 998 2006 990 curveto
+stroke
+gsave 10 dict begin
+solid
+0.000 0.000 0.000 edgecolor
+newpath 2008 989 moveto
+2004 980 lineto
+2004 990 lineto
+closepath
+fill
+0.000 0.000 0.000 edgecolor
+end grestore
+
+%	.store2graph -> store.PageRankPermutation
+newpath 1733 804 moveto
+1677 777 1564 714 1518 620 curveto
+1512 605 1511 598 1518 584 curveto
+1524 572 1535 562 1546 554 curveto
+stroke
+gsave 10 dict begin
+solid
+0.000 0.000 0.000 edgecolor
+newpath 1548 556 moveto
+1554 548 lineto
+1544 552 lineto
+closepath
+fill
+0.000 0.000 0.000 edgecolor
+end grestore
+
+%	.graph
+gsave 10 dict begin
+2014 746 32 18 ellipse_path
+stroke
+gsave 10 dict begin
+0.000 0.000 1.000 nodecolor
+2014 741 moveto 42 -0.5 (.graph) alignedtext
+end grestore
+end grestore
+
+%	.graph -> graph.OfflinePageRank
+newpath 1984 739 moveto
+1941 728 1859 709 1797 694 curveto
+stroke
+gsave 10 dict begin
+solid
+0.000 0.000 0.000 edgecolor
+newpath 1799 692 moveto
+1789 692 lineto
+1798 697 lineto
+closepath
+fill
+0.000 0.000 0.000 edgecolor
+end grestore
+
+%	.graph -> store.TransposeGraph
+newpath 2039 735 moveto
+2044 732 2050 730 2055 728 curveto
+2086 716 2119 705 2148 695 curveto
+stroke
+gsave 10 dict begin
+solid
+0.000 0.000 0.000 edgecolor
+newpath 2148 698 moveto
+2157 692 lineto
+2147 693 lineto
+closepath
+fill
+0.000 0.000 0.000 edgecolor
+end grestore
+
+%	.graph -> store.GraphRecompressor
+newpath 2014 728 moveto
+2014 720 2014 711 2014 702 curveto
+stroke
+gsave 10 dict begin
+solid
+0.000 0.000 0.000 edgecolor
+newpath 2017 702 moveto
+2014 692 lineto
+2012 702 lineto
+closepath
+fill
+0.000 0.000 0.000 edgecolor
+end grestore
+
+%	.graph2bitoffset
+gsave 10 dict begin
+2129 746 65 18 ellipse_path
+stroke
+gsave 10 dict begin
+0.000 0.000 1.000 nodecolor
+2129 741 moveto 109 -0.5 (.graph2bitoffset) alignedtext
+end grestore
+end grestore
+
+%	.graph2bitoffset -> store.TransposeGraph
+newpath 2149 729 moveto
+2160 720 2173 708 2185 698 curveto
+stroke
+gsave 10 dict begin
+solid
+0.000 0.000 0.000 edgecolor
+newpath 2186 700 moveto
+2192 692 lineto
+2183 697 lineto
+closepath
+fill
+0.000 0.000 0.000 edgecolor
+end grestore
+
+%	.graph2bitoffset -> store.GraphRecompressor
+newpath 2103 729 moveto
+2088 720 2068 707 2051 697 curveto
+stroke
+gsave 10 dict begin
+solid
+0.000 0.000 0.000 edgecolor
+newpath 2053 695 moveto
+2043 692 lineto
+2050 699 lineto
+closepath
+fill
+0.000 0.000 0.000 edgecolor
+end grestore
+
+%	store.BuildGraph -> .graph
+newpath 2102 801 moveto
+2085 790 2061 775 2043 764 curveto
+stroke
+gsave 10 dict begin
+solid
+0.000 0.000 0.000 edgecolor
+newpath 2045 762 moveto
+2035 759 lineto
+2042 766 lineto
+closepath
+fill
+0.000 0.000 0.000 edgecolor
+end grestore
+
+%	store.BuildGraph -> .graph2bitoffset
+newpath 2129 800 moveto
+2129 792 2129 783 2129 774 curveto
+stroke
+gsave 10 dict begin
+solid
+0.000 0.000 0.000 edgecolor
+newpath 2132 774 moveto
+2129 764 lineto
+2127 774 lineto
+closepath
+fill
+0.000 0.000 0.000 edgecolor
+end grestore
+
+%	.graph2storeoffset
+gsave 10 dict begin
+2285 746 73 18 ellipse_path
+stroke
+gsave 10 dict begin
+0.000 0.000 1.000 nodecolor
+2285 741 moveto 124 -0.5 (.graph2storeoffset) alignedtext
+end grestore
+end grestore
+
+%	store.BuildGraph -> .graph2storeoffset
+newpath 2163 802 moveto
+2186 791 2217 777 2242 766 curveto
+stroke
+gsave 10 dict begin
+solid
+0.000 0.000 0.000 edgecolor
+newpath 2243 768 moveto
+2251 762 lineto
+2241 764 lineto
+closepath
+fill
+0.000 0.000 0.000 edgecolor
+end grestore
+
+%	.graph2crc -> store.BuildGraph
+newpath 2039 875 moveto
+2055 865 2076 851 2094 840 curveto
+stroke
+gsave 10 dict begin
+solid
+0.000 0.000 0.000 edgecolor
+newpath 2095 842 moveto
+2102 835 lineto
+2092 838 lineto
+closepath
+fill
+0.000 0.000 0.000 edgecolor
+end grestore
+
+%	.graph2rankvalue -> store.PageRankPermutation
+newpath 1597 584 moveto
+1596 576 1596 567 1596 558 curveto
+stroke
+gsave 10 dict begin
+solid
+0.000 0.000 0.000 edgecolor
+newpath 1599 558 moveto
+1596 548 lineto
+1594 558 lineto
+closepath
+fill
+0.000 0.000 0.000 edgecolor
+end grestore
+
+%	.store2rank -> indexer.FirstPassO
+gsave 10 dict begin
+dashed
+newpath 1548 455 moveto
+1382 443 823 405 622 391 curveto
+stroke
+gsave 10 dict begin
+solid
+0.000 0.000 0.000 edgecolor
+newpath 622 389 moveto
+612 390 lineto
+622 393 lineto
+closepath
+fill
+0.000 0.000 0.000 edgecolor
+end grestore
+end grestore
+
+%	.store2rank -> indexer.FirstPassT
+gsave 10 dict begin
+dashed
+newpath 1640 452 moveto
+1727 439 1919 412 2025 396 curveto
+stroke
+gsave 10 dict begin
+solid
+0.000 0.000 0.000 edgecolor
+newpath 2025 398 moveto
+2035 395 lineto
+2025 394 lineto
+closepath
+fill
+0.000 0.000 0.000 edgecolor
+end grestore
+end grestore
+
+%	.store2rank -> indexer.FirstPassU
+gsave 10 dict begin
+dashed
+newpath 1642 454 moveto
+1796 443 2286 405 2474 392 curveto
+stroke
+gsave 10 dict begin
+solid
+0.000 0.000 0.000 edgecolor
+newpath 2474 394 moveto
+2484 391 lineto
+2474 390 lineto
+closepath
+fill
+0.000 0.000 0.000 edgecolor
+end grestore
+end grestore
+
+%	.store2rank -> indexer.AnchorFirstPass
+gsave 10 dict begin
+dashed
+newpath 1579 441 moveto
+1570 432 1560 421 1551 411 curveto
+stroke
+gsave 10 dict begin
+solid
+0.000 0.000 0.000 edgecolor
+newpath 1553 409 moveto
+1544 404 lineto
+1549 413 lineto
+closepath
+fill
+0.000 0.000 0.000 edgecolor
+end grestore
+end grestore
+
+%	indexer.AnchorFirstPass -> -anchors.batch
+newpath 1537 368 moveto
+1542 360 1547 350 1551 341 curveto
+stroke
+gsave 10 dict begin
+solid
+0.000 0.000 0.000 edgecolor
+newpath 1553 342 moveto
+1555 332 lineto
+1549 340 lineto
+closepath
+fill
+0.000 0.000 0.000 edgecolor
+end grestore
+
+%	indexer.AnchorFirstPass -> -anchors.properties
+newpath 1475 371 moveto
+1393 347 1227 300 1086 260 curveto
+996 234 892 205 829 186 curveto
+stroke
+gsave 10 dict begin
+solid
+0.000 0.000 0.000 edgecolor
+newpath 831 184 moveto
+821 184 lineto
+830 189 lineto
+closepath
+fill
+0.000 0.000 0.000 edgecolor
+end grestore
+
+%	indexer.AnchorFirstPass -> -anchors.terms
+newpath 1577 370 moveto
+1598 363 1613 355 1633 332 curveto
+1668 292 1682 232 1688 197 curveto
+stroke
+gsave 10 dict begin
+solid
+0.000 0.000 0.000 edgecolor
+newpath 1690 198 moveto
+1690 188 lineto
+1685 197 lineto
+closepath
+fill
+0.000 0.000 0.000 edgecolor
+end grestore
+
+%	.store2crc -> indexer.AnchorFirstPass
+newpath 1597 1023 moveto
+1548 1004 1461 960 1461 890 curveto
+1461 890 1461 890 1461 530 curveto
+1461 486 1487 440 1507 413 curveto
+stroke
+gsave 10 dict begin
+solid
+0.000 0.000 0.000 edgecolor
+newpath 1510 414 moveto
+1513 404 lineto
+1505 411 lineto
+closepath
+fill
+0.000 0.000 0.000 edgecolor
+end grestore
+
+%	-anchors.batch -> indexer.SecondPassA
+newpath 1513 305 moveto
+1445 292 1327 271 1247 256 curveto
+stroke
+gsave 10 dict begin
+solid
+0.000 0.000 0.000 edgecolor
+newpath 1249 254 moveto
+1239 255 lineto
+1249 259 lineto
+closepath
+fill
+0.000 0.000 0.000 edgecolor
+end grestore
+
+%	-anchors.batch -> indexer.MiddlePassA
+newpath 1559 296 moveto
+1559 288 1560 279 1561 270 curveto
+stroke
+gsave 10 dict begin
+solid
+0.000 0.000 0.000 edgecolor
+newpath 1563 270 moveto
+1562 260 lineto
+1559 270 lineto
+closepath
+fill
+0.000 0.000 0.000 edgecolor
+end grestore
+
+%	-anchors.properties -> indexer.SecondPassA
+newpath 1085 227 moveto
+1024 216 940 202 866 188 curveto
+855 186 844 183 833 181 curveto
+stroke
+gsave 10 dict begin
+solid
+0.000 0.000 0.000 edgecolor
+newpath 1085 229 moveto
+1095 229 lineto
+1086 225 lineto
+closepath
+fill
+0.000 0.000 0.000 edgecolor
+end grestore
+
+%	-anchors.terms -> indexer.MiddlePassA
+newpath 1614 220 moveto
+1633 209 1654 197 1669 187 curveto
+stroke
+gsave 10 dict begin
+solid
+0.000 0.000 0.000 edgecolor
+newpath 1614 217 moveto
+1606 224 lineto
+1616 222 lineto
+closepath
+fill
+0.000 0.000 0.000 edgecolor
+end grestore
+
+%	-anchors.terms -> store.MinimalPerfectHashBulderA
+newpath 1692 152 moveto
+1692 144 1692 135 1692 126 curveto
+stroke
+gsave 10 dict begin
+solid
+0.000 0.000 0.000 edgecolor
+newpath 1695 126 moveto
+1692 116 lineto
+1690 126 lineto
+closepath
+fill
+0.000 0.000 0.000 edgecolor
+end grestore
+
+%	.store2occs -> indexer.FirstPassO
+newpath 784 515 moveto
+739 489 645 439 591 409 curveto
+stroke
+gsave 10 dict begin
+solid
+0.000 0.000 0.000 edgecolor
+newpath 592 407 moveto
+582 404 lineto
+590 411 lineto
+closepath
+fill
+0.000 0.000 0.000 edgecolor
+end grestore
+
+%	.store2title -> indexer.FirstPassT
+newpath 2217 444 moveto
+2197 434 2168 420 2144 408 curveto
+stroke
+gsave 10 dict begin
+solid
+0.000 0.000 0.000 edgecolor
+newpath 2145 406 moveto
+2135 404 lineto
+2143 410 lineto
+closepath
+fill
+0.000 0.000 0.000 edgecolor
+end grestore
+
+%	-text.batch -> indexer.SecondPassO
+newpath 274 302 moveto
+306 292 354 276 393 263 curveto
+stroke
+gsave 10 dict begin
+solid
+0.000 0.000 0.000 edgecolor
+newpath 394 265 moveto
+403 260 lineto
+393 260 lineto
+closepath
+fill
+0.000 0.000 0.000 edgecolor
+end grestore
+
+%	-text.batch -> indexer.MiddlePassO
+newpath 217 298 moveto
+208 288 198 277 190 267 curveto
+stroke
+gsave 10 dict begin
+solid
+0.000 0.000 0.000 edgecolor
+newpath 192 266 moveto
+184 260 lineto
+189 269 lineto
+closepath
+fill
+0.000 0.000 0.000 edgecolor
+end grestore
+
+%	-text.properties -> indexer.SecondPassO
+newpath 513 220 moveto
+539 209 568 196 590 186 curveto
+stroke
+gsave 10 dict begin
+solid
+0.000 0.000 0.000 edgecolor
+newpath 513 217 moveto
+505 224 lineto
+515 222 lineto
+closepath
+fill
+0.000 0.000 0.000 edgecolor
+end grestore
+
+%	-text.terms -> indexer.MiddlePassO
+newpath 160 216 moveto
+153 207 145 196 138 187 curveto
+stroke
+gsave 10 dict begin
+solid
+0.000 0.000 0.000 edgecolor
+newpath 158 217 moveto
+166 224 lineto
+162 214 lineto
+closepath
+fill
+0.000 0.000 0.000 edgecolor
+end grestore
+
+%	-text.terms -> store.MinimalPerfectHashBulderO
+newpath 120 152 moveto
+120 144 120 135 120 126 curveto
+stroke
+gsave 10 dict begin
+solid
+0.000 0.000 0.000 edgecolor
+newpath 123 126 moveto
+120 116 lineto
+118 126 lineto
+closepath
+fill
+0.000 0.000 0.000 edgecolor
+end grestore
+
+%	-text.frequencies -> indexer.SecondPassO
+newpath 431 296 moveto
+436 288 441 278 445 269 curveto
+stroke
+gsave 10 dict begin
+solid
+0.000 0.000 0.000 edgecolor
+newpath 447 270 moveto
+450 260 lineto
+443 268 lineto
+closepath
+fill
+0.000 0.000 0.000 edgecolor
+end grestore
+
+%	-text.sizes -> indexer.SecondPassO
+newpath 529 298 moveto
+517 289 502 277 489 266 curveto
+stroke
+gsave 10 dict begin
+solid
+0.000 0.000 0.000 edgecolor
+newpath 491 265 moveto
+482 260 lineto
+488 268 lineto
+closepath
+fill
+0.000 0.000 0.000 edgecolor
+end grestore
+
+%	-urltokens.batch -> indexer.SecondPassU
+newpath 2523 302 moveto
+2532 300 2541 298 2549 296 curveto
+2607 283 2673 269 2724 259 curveto
+stroke
+gsave 10 dict begin
+solid
+0.000 0.000 0.000 edgecolor
+newpath 2723 262 moveto
+2732 257 lineto
+2722 257 lineto
+closepath
+fill
+0.000 0.000 0.000 edgecolor
+end grestore
+
+%	-urltokens.batch -> indexer.MiddlePassU
+newpath 2469 296 moveto
+2468 288 2468 279 2468 270 curveto
+stroke
+gsave 10 dict begin
+solid
+0.000 0.000 0.000 edgecolor
+newpath 2470 270 moveto
+2469 260 lineto
+2466 270 lineto
+closepath
+fill
+0.000 0.000 0.000 edgecolor
+end grestore
+
+%	-urltokens.properties -> indexer.SecondPassU
+newpath 2885 225 moveto
+2941 212 3013 195 3061 184 curveto
+stroke
+gsave 10 dict begin
+solid
+0.000 0.000 0.000 edgecolor
+newpath 2885 222 moveto
+2876 227 lineto
+2886 227 lineto
+closepath
+fill
+0.000 0.000 0.000 edgecolor
+end grestore
+
+%	-urltokens.terms -> indexer.MiddlePassU
+newpath 2477 215 moveto
+2476 206 2473 196 2471 188 curveto
+stroke
+gsave 10 dict begin
+solid
+0.000 0.000 0.000 edgecolor
+newpath 2474 214 moveto
+2478 224 lineto
+2479 214 lineto
+closepath
+fill
+0.000 0.000 0.000 edgecolor
+end grestore
+
+%	-urltokens.terms -> store.MinimalPerfectHashBulderU
+newpath 2477 152 moveto
+2485 143 2494 133 2502 123 curveto
+stroke
+gsave 10 dict begin
+solid
+0.000 0.000 0.000 edgecolor
+newpath 2503 125 moveto
+2508 116 lineto
+2500 122 lineto
+closepath
+fill
+0.000 0.000 0.000 edgecolor
+end grestore
+
+%	-urltokens.frequencies -> indexer.SecondPassU
+newpath 2680 298 moveto
+2702 287 2731 275 2755 264 curveto
+stroke
+gsave 10 dict begin
+solid
+0.000 0.000 0.000 edgecolor
+newpath 2756 266 moveto
+2764 260 lineto
+2754 262 lineto
+closepath
+fill
+0.000 0.000 0.000 edgecolor
+end grestore
+
+%	-urltokens.sizes -> indexer.SecondPassU
+newpath 2808 296 moveto
+2807 288 2807 279 2806 270 curveto
+stroke
+gsave 10 dict begin
+solid
+0.000 0.000 0.000 edgecolor
+newpath 2808 270 moveto
+2805 260 lineto
+2804 270 lineto
+closepath
+fill
+0.000 0.000 0.000 edgecolor
+end grestore
+
+%	-title.batch -> indexer.SecondPassT
+newpath 2193 302 moveto
+2162 291 2117 275 2080 263 curveto
+stroke
+gsave 10 dict begin
+solid
+0.000 0.000 0.000 edgecolor
+newpath 2082 261 moveto
+2072 260 lineto
+2080 266 lineto
+closepath
+fill
+0.000 0.000 0.000 edgecolor
+end grestore
+
+%	-title.batch -> indexer.MiddlePassT
+newpath 2222 296 moveto
+2221 288 2221 279 2221 270 curveto
+stroke
+gsave 10 dict begin
+solid
+0.000 0.000 0.000 edgecolor
+newpath 2223 270 moveto
+2222 260 lineto
+2219 270 lineto
+closepath
+fill
+0.000 0.000 0.000 edgecolor
+end grestore
+
+%	-title.properties -> indexer.SecondPassT
+newpath 1967 220 moveto
+1937 209 1899 194 1870 183 curveto
+stroke
+gsave 10 dict begin
+solid
+0.000 0.000 0.000 edgecolor
+newpath 1967 223 moveto
+1977 224 lineto
+1969 218 lineto
+closepath
+fill
+0.000 0.000 0.000 edgecolor
+end grestore
+
+%	-title.terms -> indexer.MiddlePassT
+newpath 2266 219 moveto
+2282 209 2298 196 2311 187 curveto
+stroke
+gsave 10 dict begin
+solid
+0.000 0.000 0.000 edgecolor
+newpath 2266 216 moveto
+2259 224 lineto
+2269 220 lineto
+closepath
+fill
+0.000 0.000 0.000 edgecolor
+end grestore
+
+%	-title.terms -> store.MinimalPerfectHashBulderT
+newpath 2313 153 moveto
+2306 144 2296 133 2287 123 curveto
+stroke
+gsave 10 dict begin
+solid
+0.000 0.000 0.000 edgecolor
+newpath 2289 122 moveto
+2281 116 lineto
+2286 125 lineto
+closepath
+fill
+0.000 0.000 0.000 edgecolor
+end grestore
+
+%	-title.frequencies -> indexer.SecondPassT
+newpath 2079 297 moveto
+2069 288 2057 276 2046 266 curveto
+stroke
+gsave 10 dict begin
+solid
+0.000 0.000 0.000 edgecolor
+newpath 2048 265 moveto
+2039 260 lineto
+2045 268 lineto
+closepath
+fill
+0.000 0.000 0.000 edgecolor
+end grestore
+
+%	-title.sizes -> indexer.SecondPassT
+newpath 1983 297 moveto
+1988 288 1996 278 2002 268 curveto
+stroke
+gsave 10 dict begin
+solid
+0.000 0.000 0.000 edgecolor
+newpath 2004 270 moveto
+2007 260 lineto
+2000 267 lineto
+closepath
+fill
+0.000 0.000 0.000 edgecolor
+end grestore
+endpage
+grestore
+%%PageTrailer
+%%EndPage: 1
+%%Trailer
+%%Pages: 1
+end
+restore
+%%EOF
