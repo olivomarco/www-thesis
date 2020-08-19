@@ -10,7 +10,7 @@ Everything started out from the UbiCrawler project, in the LAW laboratory. The s
 
 ![Ubi Logo](/ubilogo.png)
 
-The whole search engine, the algorithms and the various utilities implemented were written using the Java language; the search engine uses many 3rd-party classes that overcome many limits we found exist in the Java standard classes. Some of these classes are GPL’ed and are available under [this site](https://vigna.dsi.unimi.it).
+The whole search engine, the algorithms and the various utilities implemented were written using the Java language; the search engine uses many 3rd-party classes that overcome many limits we found exist in the Java standard classes. Some of these classes are GPL’ed and are available under [this site](http://vigna.di.unimi.it).
 
 My MS thesis shows many useful techniques which are probably used by the commercial search engines in order to give ranks to the documents. Since search results were very similar to those given back by many commercial search engines, it might be worth reading it. Apart from that, there are also some nice notes about search engines and about the problem of rank aggregation, which I have faced during my thesis. In short, the rank aggregation problem is the problem you have to face when you want to speed up searches, by "cutting" match-evaluation after a certain number of positives, but being (almost) sure you don’t lose anything significant.
 
